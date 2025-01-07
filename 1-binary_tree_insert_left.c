@@ -16,17 +16,14 @@ binary_tree_t *new_node = (binary_tree_t *) malloc(sizeof(binary_tree_t));
 
 	/*new_node = binary_tree_node(parent, value); */
 	if (parent == NULL)
-	{	
-		free(new_node);
+	{
+		free(new_node); /* valgrind */
 		/*free(parent); */
 		return (NULL);
 	}
 	if (new_node == NULL)
 	{
-		/* new_node->parent = NULL; */
-		/* free(new_node->left); */
-		/*free(new_node->right); */
-		free(new_node);
+		free(new_node);  /*valgrind */
 		return (NULL);
 	}
 	new_node->n = value;  /*add new_node */
