@@ -14,9 +14,19 @@ binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value)
 	binary_tree_t *temp = NULL;
 	/*binary_tree_t *parentTemp;  copy of parent */
 
-	if ((parent == NULL) || (new_node == NULL))
+	if (parent == NULL)
+	{
+		free(parent);
 		return (NULL);
-
+	}
+	if (new_node == NULL)
+	{
+		/* new_node->parent = NULL; */
+		/* free(new_node->left); */
+		/*free(new_node->right); */
+		free(new_node);
+		return (NULL);
+	}
 	/*parentTemp = parent;  copy of parent */
 	/*current = parent; */
 
@@ -42,6 +52,7 @@ binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value)
 		temp->left = NULL;
 		temp->parent = new_node;
 	}
+	/* free(new_node); */
 	return (current);
 }
 
