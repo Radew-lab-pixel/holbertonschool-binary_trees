@@ -14,15 +14,10 @@ binary_tree_t *binary_tree_node(binary_tree_t *parent, int value)
 	/* binary_tree_t *current ; */
 	/* binary_tree_t *root = parent;  copy of parent/root */
 
-	new_node->n = value;
-	new_node->parent = NULL; /* parent */
-	new_node->left = NULL; /* left child */
-	new_node->right = NULL; /* right child */
-
 	if (new_node == NULL)
 	{
-		/* perror("Error in creating node\n"); */
-		/* free(new_node); failed malloc return checker */
+		perror("Error in creating node\n");
+		free(new_node); /*failed malloc return checker */
 		return (NULL);
 	}
 
