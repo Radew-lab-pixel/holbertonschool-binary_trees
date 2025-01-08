@@ -9,17 +9,22 @@
 size_t binary_tree_leaves(const binary_tree_t *tree)
 {
 	const binary_tree_t *current = tree;
-	size_t lefth = 0, righth = 0;
+	size_t lefth = 0, righth = 0, count = 0;
 
 	if (current == NULL)
 		return (0);
 
 	if ((current->left == NULL) && (current->right == NULL))
-		return (1);
+		/* return (1); */
+		count++; /* add +1 as node without leaves is counted as leave */
 
 	if (current->left)
-		lefth++;
+	{	/*lefth++;*/
+		lefth = binary_tree_leaves(current->left);
+	}
 	if (current->right)
-		righth++;
-	return (lefth + righth);
+	{	/*righth++; */
+		righth = binary_tree_leaves(current->right);
+	}
+	return (lefth + righth + count);
 }
