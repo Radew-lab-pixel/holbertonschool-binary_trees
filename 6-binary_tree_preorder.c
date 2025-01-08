@@ -11,10 +11,10 @@ void binary_tree_preorder(const binary_tree_t *tree, void (*func)(int))
 {
 	const binary_tree_t *current = tree;
 
-	if (current == NULL)
+	if ((current == NULL) || (*func == NULL))
 		return;
 
 	func(current->n); /* 1st print current node which is root */
 	binary_tree_preorder(current->left, *func); /* 2nd left child */
-	binary_tree_preorder(current->right,*func); /*last right child */
+	binary_tree_preorder(current->right, *func); /*last right child */
 }
