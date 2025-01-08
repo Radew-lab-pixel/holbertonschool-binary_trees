@@ -12,9 +12,10 @@ void binary_tree_postorder(const binary_tree_t *tree, void (*func)(int))
 	const binary_tree_t *current = tree;
 
 	if ((current == NULL) || (*func == NULL))
-	{
-		binary_tree_postorder(current->left, *func); /* 1st leftchild */
-		binary_tree_postorder(current->right, *func); /* 2nd rightchild */
-		func(current->n); /* last current->n/root */
-	}
+		return;
+	
+	binary_tree_postorder(current->left, *func); /* 1st leftchild */
+	binary_tree_postorder(current->right, *func); /* 2nd rightchild */
+	func(current->n); /* last current->n/root */
+	
 }
