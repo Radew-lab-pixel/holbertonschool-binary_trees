@@ -21,10 +21,10 @@ binary_tree_t *binary_tree_sibling(binary_tree_t *node)
 
 	lefth = parent->left->n;
 	righth = parent->right->n;
-
-	if (lefth == current->n) /* current-> is lefth child */
+	
+	if ((lefth == current->n) && (parent->right)) /* current-> is lefth child */
 		return (parent->right);
-	else if (righth == current->n)
+	else if ((righth == current->n) && (parent->left))
 		return (parent->left);
 	else
 		return (NULL);
