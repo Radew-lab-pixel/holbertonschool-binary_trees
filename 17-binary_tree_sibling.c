@@ -18,6 +18,8 @@ binary_tree_t *binary_tree_sibling(binary_tree_t *node)
 	parent = current->parent;
 	if (parent == NULL)
 		return (NULL);
+	if ((!parent->left) || (!parent->right))
+		return (NULL);
 
 	lefth = parent->left->n;
 	righth = parent->right->n;
