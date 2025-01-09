@@ -14,7 +14,7 @@ binary_tree_t *binary_tree_uncle(binary_tree_t *node)
 
 	int lefth = 0, righth = 0;
 
-	if (current == NULL)
+	if ((current == NULL) || (!current->parent)) /* also check if node is root */
 		return (NULL);
 	parentT = current->parent;
 	greatparent = parentT->parent;
